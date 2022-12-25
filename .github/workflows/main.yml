@@ -3,19 +3,24 @@ name: 'New Staging Deploy'
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      branch_name:
+        description: 'ブランチ名'
         required: true
-        default: 'warning'
+        default: master
+        type: string
+      host_name:
+        description: '環境名'
+        required: true
+        default: staging
         type: choice
         options:
-        - info
-        - warning
-        - debug
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean
+        - staging
+        - kanouchi
+        - mizorogi
+        - kato
+        - nakama
+        - kanari
+        - client_staging
 
 jobs:
   log-the-inputs:
